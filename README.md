@@ -1,5 +1,4 @@
 # Recipe Analysis of Food.com Dataset
-EECS 388 Final Project
 By: Claire Keegan (clairemk@umich.edu)
 
 ## Introduction:
@@ -15,24 +14,24 @@ Knowing that there are more recipes than only in this dataset, the idea that the
 After looking into the correlation between the number of ingredients and steps with the cook time, I dug deeper by applying a regression analysis to predict the length of cooking time given a variety of factors. This can help calculate recipes that may not be included in the dataset that has been provided. 
 
 While a variety of factors can contribute to the number of minutes it takes to cook a recipe, for this analysis, these are the columns I am using:
-Name: The name of the dish or item that is being cooked
-Minutes: The number of Minutes it takes to cook the recipe.
-Number of Steps: The number of steps required to make the recipe.
-Steps: The actual description of what each individual step is.
-Ingredients: The foods necessary to make the recipe.
-Number of Ingredients: The number of ingredients needed to make the recipe.
+- Name: The name of the dish or item that is being cooked
+- Minutes: The number of Minutes it takes to cook the recipe.
+- Number of Steps: The number of steps required to make the recipe.
+- Steps: The actual description of what each individual step is.
+- Ingredients: The foods necessary to make the recipe.
+- Number of Ingredients: The number of ingredients needed to make the recipe.
 
 The other columns I could have used were:
-ID: The numerical ID given to the recipe.
-Contributor ID: The ID number of the person who posted the recipe to the internet.
-Submitted: The date at which the recipe was posted on the internet.
-Tags: The important words or phrases included in the recipe that help differentiate them from one another. Example tags include ‘easy’, ‘for 1 or 2’, and  ‘vegan’
-Nutrition: This column contains the list of the recipes' values for calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), and carbohydrates (PDV).
-Description: The full description of the meal or item that can be made with the recipe.
-Date: The date that the review was posted to a recipe
-Rating: The rank out of 5 stars that the reviewer gave to the recipe after trying it.
-Review: The actual written review of a user who made the recipe.
-Average rating: Taking into account all ratings given to a recipe, the average rating out of five stars that was given to the recipe.
+- ID: The numerical ID given to the recipe.
+- Contributor ID: The ID number of the person who posted the recipe to the internet.
+- Submitted: The date at which the recipe was posted on the internet.
+- Tags: The important words or phrases included in the recipe that help differentiate them from one another. Example tags include ‘easy’, ‘for 1 or 2’, and  ‘vegan’
+- Nutrition: This column contains the list of the recipes' values for calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), and carbohydrates (PDV).
+- Description: The full description of the meal or item that can be made with the recipe.
+- Date: The date that the review was posted to a recipe
+- Rating: The rank out of 5 stars that the reviewer gave to the recipe after trying it.
+- Review: The actual written review of a user who made the recipe.
+- Average rating: Taking into account all ratings given to a recipe, the average rating out of five stars that was given to the recipe.
 Some of these factors are included in the regression analysis in later parts. 
 
 
@@ -65,9 +64,7 @@ I did not fill in any missing values because the values were so important to my 
 
 ## Framing a Prediction Problem:
 
-What factors help predict the number of minutes it takes to cook a recipe?
-
-
+**What factors help predict the number of minutes it takes to cook a recipe?**
 
 I picked the response variable to be cook time because that is one of the most important factors when it comes to deciding what meal to cook. In some cases, people come up with their own recipes and have no way of predicting how long it will take for them to cook it, with this analysis, they may be able to get an estimated cook time to know how much time they need to alot in their busy schedule to make the recipe. I picked a regression analysis since it was a quantitative variable with many factors that influenced it. Using MSE, we can evaluate the model. Since we are not certain whether or not the data is linear, we use MSE instead of R^2. We are using the number of ingredients and steps to conduct this prediction problem, which are known before the meal is cooked. 
 
@@ -86,10 +83,3 @@ I started with a RandomTreeRegressor with n_estimators = 100 and the maximum dep
 
 
 The final model was a slight improvement over my baseline performance because I had a smaller MSE of 985.985327429368 and a higher R^2 of 0.33 (when the minutes were log transformed). This shows an improvement since we have fewer errors between the predicted and the actual number of minutes it took to cook. While this was not as large of an improvement as I would have wanted, it still did improve some. I tried a variety of different models, and the one that ended up working the best was the HistGradientBoostingRegressor, where I was able to get my MSE down by about 15 minutes. Since I have such a vastly variable data set, it is difficult to get a low MSE.
-
-
-
-# Data Cleaning and Exploratory Data Analysis
-#
-#
-#
