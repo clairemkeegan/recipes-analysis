@@ -56,26 +56,23 @@ When starting this analysis, a variety of data cleaning techniques had to be use
 ### Univariate Analysis: 
 
  <iframe
- src="univariate-analysis.html"
+ src="assets/univariate-analysis.html"
  width="800"
  height="600"
  frameborder="0"
  ></iframe>
- 
-Include the Boxplot of the number of minutes
 
 This boxplot shows the distribution of the number of minutes the remaining recipes take to make. After the data cleaning, we have recipes with cook times ranging from 0 to 205 minutes. Interestingly, it shows that all of the recipes from 108 minutes onwards are outliers, so the majority of recipes take less than 108 minutes.
 
 ### Bivariate Analysis:
 
  <iframe
- src="bivariate-analysis.html"
+ src="assets/bivariate-analysis.html"
  width="800"
  height="600"
  frameborder="0"
  ></iframe>
- 
-Include the scatterplot of the ratio of ingredients/steps vs minutes 
+
 
 This scatterplot shows a slightly negative relationship between the ingredients-steps ratio and the number of minutes it takes to cook the recipe. When there are overwhelmingly more ingredients than steps, the plot shows that the recipes do not take very long. Most of the longest recipes have very small ratios where the number of steps and ingredients are more even.
 
