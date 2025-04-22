@@ -56,7 +56,7 @@ When starting this analysis, a variety of data cleaning techniques had to be use
 ### Univariate Analysis: 
 
  <iframe
- src="assets/file-name.html"
+ src="univariate-analysis.html"
  width="800"
  height="600"
  frameborder="0"
@@ -69,7 +69,7 @@ This boxplot shows the distribution of the number of minutes the remaining recip
 ### Bivariate Analysis:
 
  <iframe
- src="assets/file-name.html"
+ src="bivariate-analysis.html"
  width="800"
  height="600"
  frameborder="0"
