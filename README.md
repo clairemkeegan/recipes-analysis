@@ -40,21 +40,64 @@ Some of these factors are included in the regression analysis in later parts.
 
 When starting this analysis, a variety of data cleaning techniques had to be used to have a dataset reflective of what I wanted to analyze and eventually predict. First, I merged the two data sets (the recipes and the reviews), where I created a new column with the average rating for each recipe. This was important because it added a new layer of information, although I did not take it into account in my initial analyses, it was helpful knowing I could look at this information when needed. All missing values for the ratings were filled with NaN because we still wanted to include recipes that did not have ratings, either because they were new or just not as common.  I did, though, remove any recipes that did not have a cook time or number of steps associated with them because I needed to ensure I only included recipes that had the data I was interested in analyzing. Next, I noticed a few recipes that took many hours to cook or that took a large number of ingredients or steps. Knowing that this is a deterrent for many, I decided to only keep the recipes that came within two standard deviations away from the mean of cook time, and then applied this again for the number of steps, and then again for the number of ingredients. I then decided to apply this to the minutes two more times because I wanted recipes that were all less than 4 hours to cook. All of these steps were completed to be sure that only the most important and practical recipes were being analyzed for the average person. This analysis is not for those interested in making something that takes more than 4 hours to cook, we want quick, easy meals that can save time and promote nutritional values.
 
-Include the Show the head of your cleaned DataFrame
+
+| name                                  |   minutes |   n_steps |   n_ingredients |
+|:--------------------------------------|----------:|----------:|----------------:|
+| impossible macaroni and cheese pie    |        50 |        11 |               7 |
+| impossible rhubarb pie                |        55 |         6 |               8 |
+| impossible seafood pie                |        45 |         7 |               9 |
+| paula deen s caramel apple cheesecake |        45 |        11 |               9 |
+| midori poached pears                  |        25 |         8 |               9 |
+| penne with bacon  spinach   mushrooms |        30 |        15 |               8 |
+| peanut butter logs                    |         5 |         5 |               7 |
+
+
 
 ### Univariate Analysis: 
 
+ <iframe
+ src="assets/file-name.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+ 
 Include the Boxplot of the number of minutes
+
 This boxplot shows the distribution of the number of minutes the remaining recipes take to make. After the data cleaning, we have recipes with cook times ranging from 0 to 205 minutes. Interestingly, it shows that all of the recipes from 108 minutes onwards are outliers, so the majority of recipes take less than 108 minutes.
 
 ### Bivariate Analysis:
 
+ <iframe
+ src="assets/file-name.html"
+ width="800"
+ height="600"
+ frameborder="0"
+ ></iframe>
+ 
 Include the scatterplot of the ratio of ingredients/steps vs minutes 
+
 This scatterplot shows a slightly negative relationship between the ingredients-steps ratio and the number of minutes it takes to cook the recipe. When there are overwhelmingly more ingredients than steps, the plot shows that the recipes do not take very long. Most of the longest recipes have very small ratios where the number of steps and ingredients are more even.
 
 ### Interesting Aggregates:
 
-Website Embed at least one grouped table or pivot table in your website, and explain its significance.
+| n_ingredients |   minutes |
+|:--------------|----------:|
+|             1 |   20.6579 |
+|             2 |   21.4975 |
+|             3 |   24.4471 |
+|             4 |   29.2526 |
+|             5 |   33.6591 |
+|             6 |   38.0988 |
+|             7 |   41.4827 |
+|             8 |   43.4311 |
+|             9 |   47.3024 |
+|            10 |   48.3165 |
+|            11 |   50.3348 |
+|            12 |   53.161  |
+|            13 |   56.2245 |
+|            14 |   57.1234 |
+|            15 |   59.2052 |
 
 The table I included was grouped by the number of ingredients, with the corresponding column containing the mean cook time for that number of ingredients. This is useful because we have an easier way of seeing if there is an increase or decrease when the number of ingredients increases. When looking at this table, we can see a clear increase in cook time for every ingredient increase, which helps to show that there is a clear relationship between cook time and the number of ingredients in the recipe.
 
@@ -73,7 +116,6 @@ I picked the response variable to be cook time because that is one of the most i
 
 I made a model using a linear regression to predict the number of minutes it takes to cook the recipe. The features I included were the number of steps and the number of ingredients because I believed they were the two most important features when determining the number of minutes that the recipe takes. The two features were quantitative, predicting a quantitative feature. The performance of the model was not very good, I had an MSE of almost 1000, it was 999.20599, and an R^2 value of 0.1314002. These values do not reflect a good prediction for the training data since the MSE is so large and the R^2 is so low. This can be very much improved, which will be done in the final model. 
 
- 
 
 ## Final Model:
 
